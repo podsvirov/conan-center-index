@@ -66,7 +66,7 @@ class Box2dConan(ConanFile):
             )
 
     def build_requirements(self):
-        if Version(self.version) >= "3.0.0":
+        if Version(self.version) >= "3.0.0" and not self.conf.get("tools.cmake:cmake_program", check_type=str):
             self.tool_requires("cmake/[>=3.22 <5]")
 
     def source(self):
